@@ -1,31 +1,29 @@
 package ru.netology.manager;
 
 import ru.netology.domain.FilmsAfishaItem;
+import ru.netology.repository.FilmsAfishaRepository;
 
 public class AfishaManager {
-    private FilmsAfishaItem[] items = new FilmsAfishaItem[0];
+    private FilmsAfishaRepository repository;
     private int itemsCount = 10;
 
-    public AfishaManager() {
+    public AfishaManager(FilmsAfishaRepository repository) {
+        this.repository=repository;
     }
 
     public void add(FilmsAfishaItem item) {
-        int length = items.length + 1;
-        FilmsAfishaItem[] tmp = new FilmsAfishaItem[length];
-        System.arraycopy(items, 0, tmp, 0, items.length);
-        int lastIndex = tmp.length - 1;
-        tmp[lastIndex] = item;
-        items = tmp;
+        repository.save(item);
     }
 
-    public AfishaManager(int itemsCount) {
+    public AfishaManager(FilmsAfishaRepository repository, int itemsCount) {
+        this.repository = repository;
         if (itemsCount >= 0) {
             this.itemsCount = itemsCount;
         }
     }
 
     public FilmsAfishaItem[] getLastItems() {
-
+        FilmsAfishaItem[] items = repository.findAll();
         int count = items.length > itemsCount ? itemsCount : items.length;
         FilmsAfishaItem[] result = new FilmsAfishaItem[count];
         for (int i = 0; i < count; i++) {
@@ -35,8 +33,9 @@ public class AfishaManager {
         return result;
     }
 
+
     public FilmsAfishaItem[] getAllFilms() {
-        return items;
+        return repository.findAll();
     }
 }
 
