@@ -45,7 +45,7 @@ public class AfishaManagerTest {
     }
 
     @Test
-    void shouldShowLastEqualZeroItemsCount() {
+    void shouldGetLastEqualZeroItemsCount() {
         FilmsAfishaItem[] mockCover = new FilmsAfishaItem[]{item1,item2,item3,item4,item5,item6,item7,item8,item9,item10,item11};
         doReturn(mockCover).when(repository).findAll();
         manager = new AfishaManager(repository, 0);
@@ -55,7 +55,7 @@ public class AfishaManagerTest {
     }
 
     @Test
-    void shouldShowLastEqualItemsCount() {
+    void shouldGetLastEqualItemsCount() {
         FilmsAfishaItem[] mockCover = new FilmsAfishaItem[]{item1, item2, item3, item4, item5};
         doReturn(mockCover).when(repository).findAll();
         manager = new AfishaManager(repository, 5);
@@ -70,7 +70,7 @@ public class AfishaManagerTest {
     }
 
     @Test
-    void shouldShowLastLessThenItemsCount() {
+    void shouldGetLastLessThenItemsCount() {
         FilmsAfishaItem[] mockCover = new FilmsAfishaItem[]{item1, item2, item3};
         doReturn(mockCover).when(repository).findAll();
         manager = new AfishaManager(repository);
@@ -81,7 +81,7 @@ public class AfishaManagerTest {
     }
 
     @Test
-    void shouldShowLastMoreThenItemsCount() {
+    void shouldGetLastMoreThenItemsCount() {
         FilmsAfishaItem[] mockCover = new FilmsAfishaItem[]{item1, item2, item3, item4, item5};
         doReturn(mockCover).when(repository).findAll();
         manager = new AfishaManager(repository, 4);
