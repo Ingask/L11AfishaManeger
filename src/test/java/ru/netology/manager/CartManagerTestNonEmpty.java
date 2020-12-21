@@ -1,6 +1,6 @@
 package ru.netology.manager;
 
-//import ru.netology.manager.CartManager;
+import ru.netology.manager.CartManager;
 //import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.extension.ExtendWith;
@@ -42,7 +42,7 @@ public class CartManagerTestNonEmpty {
         CartManager manager = new CartManager();
         int idToRemove = 1;
 
-        PurchaseItem first = new PurchaseItem(1,1,"first,1,1")
+        PurchaseItem first = new PurchaseItem(1, 1,"first", 1, 1);
         PurchaseItem second = new PurchaseItem(2, 2, "second", 1, 1);
         PurchaseItem third = new PurchaseItem(3, 3, "third", 1, 1);
 
